@@ -33,7 +33,7 @@ export default function RootLayout({
             />
           </div>
         </header>
-        <main className="w-5/6 flex flex-col mx-auto h-40 mt-16 items-center justify-center">
+        <main className="w-5/6 flex flex-col mx-auto mt-24 items-center justify-center">
           <div className="flex">
             <Button>Gallery</Button>
             <Button>Projects</Button>
