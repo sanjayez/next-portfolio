@@ -1,14 +1,28 @@
-import React from "react";
+import { DivProps } from "react-html-props";
 
-const PhotoGrid = () => {
+type Photo = {
+  albumId: number;
+  id: number;
+  title: string;
+  url: string;
+  thumbnailUrl: string;
+}
+
+interface PhotoGridProps extends DivProps {
+  data: unknown[]
+}
+
+const PhotoGrid = ({ className, data, children, ...rest }: PhotoGridProps) => {
   return (
-    <div className="mt-20 grid grid-cols-3 gap-x-4 gap-y-6 place-items-center">
-      <div className="w-80 h-96 bg-blue-200"></div>
-      <div className="w-80 h-96 bg-blue-200"></div>
-      <div className="w-80 h-96 bg-blue-200"></div>
-      <div className="w-80 h-96 bg-blue-200"></div>
-      <div className="w-80 h-96 bg-blue-200"></div>
-      <div className="w-80 h-96 bg-blue-200"></div>
+    <div className={`grid grid-cols-4 gap-x-4 gap-y-6 place-items-center ${className}`} {...rest}>
+      {(data as Photo[]).slice(0, 8).map((img: Photo) => {
+        return (
+          <div key={img.id} className="h-40 mx-auto">
+            <img className="h-full object-cover" src={img.url} alt="img" />
+          </div>
+        )
+      })}
+      {children}
     </div>
   );
 };
