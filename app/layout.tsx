@@ -1,10 +1,11 @@
 import Providers from "./utils/QueryProvider";
 import getQueryClient from "./utils/getQueryClient";
+import Hydrate from "./utils/HydrateClient";
+import { dehydrate } from "@tanstack/query-core";
+import Header from "./components/Header";
 import { Roboto } from "next/font/google";
 import { Button } from "./components/Button";
 import "./globals.css";
-import { dehydrate } from "@tanstack/query-core";
-import Hydrate from "./utils/HydrateClient";
 
 const roboto = Roboto({
   weight: ["100", "300", "500", "700"],
@@ -35,24 +36,13 @@ export default async function RootLayout({
     <html lang="en">
       <body className={roboto.className}>
         <Providers>
-          <header className="min-w-screen relative h-80 bg-red-400">
-            <img
-              className="w-full h-80 object-cover blur-sm"
-              src="https://images.pexels.com/photos/6040547/pexels-photo-6040547.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-              alt=""
-            />
-            <div className="absolute -bottom-20 right-1/2 w-40 h-40 bg-blue-200 translate-x-1/2 overflow-hidden rounded-full border border-white border-solid border-8">
-              <img
-                src="https://images.pexels.com/photos/771742/pexels-photo-771742.jpeg?auto=compress&cs=tinysrgb&w=300&h=150&dpr=2"
-                alt="hero-profile"
-              />
-            </div>
-          </header>
-          <main className="w-5/6 flex flex-col mx-auto mt-24 items-center justify-center">
+          <Header />
+          <main className="max-w-6xl flex flex-col mx-auto mt-72 items-center justify-center">
             <div className="flex">
               <Button>Gallery</Button>
               <Button>Projects</Button>
               <Button>Resume</Button>
+              <Button>Contact</Button>
             </div>
             <Hydrate state={dehydratedState}>
               {children}
