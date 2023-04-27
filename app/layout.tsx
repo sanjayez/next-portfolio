@@ -6,6 +6,7 @@ import Header from "./components/Header";
 import { Roboto } from "next/font/google";
 import { Button } from "./components/Button";
 import "./globals.css";
+import supabaseAdmin from "./utils/supabaseAdmin";
 
 const roboto = Roboto({
   weight: ["100", "300", "500", "700"],
@@ -18,8 +19,10 @@ export const metadata = {
 };
 
 export const getPhotos = async () => {
-  const posts = await fetch('https://jsonplaceholder.typicode.com/photos');
-  return await posts.json();
+  // const posts = await fetch('https://jsonplaceholder.typicode.com/photos');
+  // return await posts.json();
+
+  return await supabaseAdmin.from('portfolio-data').select();
 }
 
 export default async function RootLayout({
