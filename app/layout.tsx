@@ -13,16 +13,20 @@ const roboto = Roboto({
   subsets: ["latin"],
 });
 
-export const metadata = {
-  title: "Greetings, Fellow earthling!",
-  description: "Instagram wasn't enough ;-)",
-};
+// export const metadata = {
+//   title: "Greetings, Fellow earthling!",
+//   description: "Instagram wasn't enough ;-)",
+// };
 
 export const getPhotos = async () => {
   // const posts = await fetch('https://jsonplaceholder.typicode.com/photos');
   // return await posts.json();
 
-  return await supabaseAdmin.from('portfolio-data').select();
+  const { data, error } = await supabaseAdmin.from('portfolio-data').select();
+
+  if (error) throw new Error('Something went wrong!');
+
+  return data
 }
 
 export default async function RootLayout({

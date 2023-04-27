@@ -22,7 +22,7 @@ export default async function Home() {
   const { data, isLoading } = useQuery({ queryKey: ['photos'], queryFn: getPhotos });
   return (
     <div className="w-full mx-auto sm:px-24 md:px-20 lg:px-16 mb-8">
-      <PhotoGrid className="w-full mt-8" data={data.slice(0, 8)} />
+      {data && <PhotoGrid className="w-full mt-8" data={data.slice(0, 8)} />}
     </div>
   );
 }

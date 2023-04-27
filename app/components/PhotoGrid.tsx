@@ -4,7 +4,7 @@ type Photo = {
   albumId: number;
   id: number;
   title: string;
-  url: string;
+  href: string;
   thumbnailUrl: string;
 }
 
@@ -19,7 +19,7 @@ const PhotoGrid = ({ className, data, children, ...rest }: PhotoGridProps) => {
       {(data as Photo[]).slice(0, 8).map((img: Photo) => {
         return (
           <div key={img.id} className="h-80">
-            <img className="h-full object-cover" src={img.url} alt="img" />
+            <img className="h-full object-cover" src={img.href} alt="img" />
           </div>
         )
       })}
