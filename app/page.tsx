@@ -5,7 +5,7 @@ import PhotoGrid from "./components/PhotoGrid";
 import { useQuery } from "@tanstack/react-query";
 import { getPhotos, getProjects } from "./utils/apiFunctions";
 import PDFViewer from "./components/PDFViewer";
-import { Button } from "./components/Button";
+import Button from "./components/Button";
 import { MenuOptions } from "./types/options";
 
 export default function Home() {
