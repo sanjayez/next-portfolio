@@ -1,6 +1,6 @@
 import { DetailedHTMLProps, ButtonHTMLAttributes, forwardRef } from "react";
 
-export const Button = forwardRef<
+const Button = forwardRef<
   HTMLButtonElement,
   DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>
 >(({ className, children, ...rest }, ref) => {
@@ -13,3 +13,7 @@ export const Button = forwardRef<
     </button>
   );
 });
+    
+Button.displayName = 'Button';
+
+export default Button;  
