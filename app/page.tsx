@@ -1,28 +1,62 @@
-"use client"
-import { Roboto } from "next/font/google";
+"use client";
+
+import { useState } from "react";
 import PhotoGrid from "./components/PhotoGrid";
 import { useQuery } from "@tanstack/react-query";
-import { getPhotos } from "./layout";
+import { getPhotos, getProjects } from "./utils/apiFunctions";
+import PDFViewer from "./components/PDFViewer";
+import { Button } from "./components/Button";
+import { MenuOptions } from "./types/options";
 
-const roboto = Roboto({
-  weight: ["100", "300", "500", "700"],
-  subsets: ["latin"],
-});
+export default function Home() {
+  const { data: photos, isLoading: isLoadingPhotos } = useQuery({
+    queryKey: ["photos"],
+    queryFn: getPhotos,
+  });
 
-type PhotoProp = {
-  albumId: number;
-  id: number;
-  title: string;
-  url: string;
-  thumbnailUrl: string;
-}
+  const { data: projects, isLoading: isLoadingProjects } = useQuery({
+    queryKey: ["projects"],
+    queryFn: getProjects,
+  });
 
-export default async function Home() {
+  const [option, setOption] = useState<MenuOptions>(MenuOptions.gallery);
 
-  const { data, isLoading } = useQuery({ queryKey: ['photos'], queryFn: getPhotos });
   return (
-    <div className="w-full mx-auto sm:px-24 md:px-20 lg:px-16 mb-8">
-      {data && <PhotoGrid className="w-full mt-8" data={data.slice(0, 8)} />}
-    </div>
+    <>
+      <div className="flex">
+        <Button onClick={() => setOption(MenuOptions.gallery)}>Gallery</Button>
+        <Button onClick={() => setOption(MenuOptions.projects)}>
+          Projects
+        </Button>
+        <Button onClick={() => setOption(MenuOptions.resume)}>Resume</Button>
+        <Button onClick={() => setOption(MenuOptions.contact)}>Contact</Button>
+      </div>
+      <div className="w-full mx-auto sm:px-24 md:px-20 lg:px-16 mb-8 justify-center">
+        {photos && (
+          <PhotoGrid
+            className={` ${
+              option === MenuOptions.gallery ? "" : "hidden"
+            } w-full mt-8`}
+            data={photos.slice(0, 8)}
+          />
+        )}
+        {projects && (
+          <PhotoGrid
+            imgClassName="w-80 h-56 rounded-md overflow-hidden"
+            className={` ${
+              option === MenuOptions.projects ? "" : "hidden"
+            } w-full mt-8`}
+            data={projects.slice(0, 8)}
+          />
+        )}
+        <PDFViewer
+          className={`${option === MenuOptions.resume ? "" : "hidden"}`}
+        />
+        <h2 className="text-bold font-sm mt-6 text-center">
+          {" "}
+          Website under construction, stay tuned for more.
+        </h2>
+      </div>
+    </>
   );
 }
