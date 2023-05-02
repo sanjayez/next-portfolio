@@ -28,10 +28,10 @@ export default async function RootLayout({
 
   return (
     <html lang="en">
-      <body className={roboto.className}>
+      <body className={`relative ${roboto.className}`}>
         <Providers>
           <Header />
-          <main className="max-w-6xl flex flex-col mx-auto mt-80 md:mt-72 lg:mt-64 items-center justify-center">
+          <main className="absolute w-full flex flex-col mx-auto top-72 right-1/2 translate-x-1/2 items-center justify-center">
             <Hydrate state={dehydratedState}>{children}</Hydrate>
           </main>
         </Providers>

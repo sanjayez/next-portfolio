@@ -21,15 +21,15 @@ const PhotoGrid = ({
 }: PhotoGridProps) => {
   return (
     <div
-      className={`grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-4 gap-y-6 place-items-center ${className}`}
+      className={`grid mx-auto grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-x-2 gap-y-6 place-items-center ${className}`}
       {...rest}>
       {(data as Photo[]).slice(0, 8).map((img: Photo) => {
         return (
           <div
             key={img.id}
-            className={`h-80 w-60 flex justify-center mx-4 ${imgClassName}`}>
+            className={`h-80 flex justify-center overflow-hidden ${imgClassName}`}>
             <img
-              className="h-full w-full object-cover"
+              className="h-full object-cover"
               src={img.href || img.preview}
               alt="img"
             />
