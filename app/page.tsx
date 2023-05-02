@@ -23,7 +23,7 @@ export default function Home() {
 
   return (
     <>
-      <div className="flex">
+      <div className="w-5/6 mx-4 flex flex-wrap justify-center mt-4 md:mt-2 lg:mt-0">
         <Button onClick={() => setOption(MenuOptions.gallery)}>Gallery</Button>
         <Button onClick={() => setOption(MenuOptions.projects)}>
           Projects
@@ -54,7 +54,7 @@ export default function Home() {
         />
         <h2 className="text-bold font-sm mt-6 text-center">
           {" "}
-          Website under construction, stay tuned for more.
+          Website under development, cooler updates rolling soon.
         </h2>
       </div>
     </>

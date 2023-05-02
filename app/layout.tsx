@@ -31,7 +31,7 @@ export default async function RootLayout({
       <body className={roboto.className}>
         <Providers>
           <Header />
-          <main className="max-w-6xl flex flex-col mx-auto mt-64 items-center justify-center">
+          <main className="max-w-6xl flex flex-col mx-auto mt-80 md:mt-72 lg:mt-64 items-center justify-center">
             <Hydrate state={dehydratedState}>{children}</Hydrate>
           </main>
         </Providers>
