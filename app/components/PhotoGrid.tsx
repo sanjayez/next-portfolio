@@ -27,9 +27,9 @@ const PhotoGrid = ({
         return (
           <div
             key={img.id}
-            className={`h-80 flex justify-center overflow-hidden ${imgClassName}`}>
+            className={`h-80 w-60 md:w-full flex justify-center overflow-hidden ${imgClassName}`}>
             <img
-              className="h-full object-cover"
+              className="h-auto w-full object-cover"
               src={img.href || img.preview}
               alt="img"
             />

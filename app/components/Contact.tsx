@@ -17,7 +17,7 @@ const Contact = ({ children, className, ...rest }: DivProps) => {
             rel="noreferrer"
             target="_blank"
             href="https://github.com/sanjayez">
-            Check out git repos!
+            Check out all my work!
           </a>
           <IconContext.Provider value={{ size: "0.8em" }}>
             <GoLinkExternal />
