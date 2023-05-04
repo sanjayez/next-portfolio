@@ -3,7 +3,7 @@
 import { useState } from "react";
 import PhotoGrid from "./components/PhotoGrid";
 import { useQuery } from "@tanstack/react-query";
-import { getPhotos, getProjects } from "./utils/apiFunctions";
+import { getPhotos, getProjects, getResume } from "./utils/apiFunctions";
 import PDFViewer from "./components/PDFViewer";
 import Button from "./components/Button";
 import { MenuOptions } from "./types/options";
@@ -18,6 +18,11 @@ export default function Home() {
   const { data: projects, isLoading: isLoadingProjects } = useQuery({
     queryKey: ["projects"],
     queryFn: getProjects,
+  });
+
+  const { data: resume, isLoading: isLoadingResume } = useQuery({
+    queryKey: ["resume"],
+    queryFn: getResume,
   });
 
   const [option, setOption] = useState<MenuOptions>(MenuOptions.gallery);
@@ -55,24 +60,23 @@ export default function Home() {
         <Button onClick={() => setOption(MenuOptions.contact)}>Contact</Button>
       </div>
       <div className="w-5/6 max-w-7xl xl:px-36 2xl:px-48 mx-auto mb-8 justify-center">
-        {photos && (
-          <PhotoGrid
-            className={` ${
-              option === MenuOptions.gallery ? "" : "hidden"
-            } w-full mt-4`}
-            data={photos.slice(0, 8)}
-          />
-        )}
-        {projects && (
-          <PhotoGrid
-            imgClassName="max-w-xs h-auto rounded-md overflow-hidden"
-            className={`grid-cols-1 md:grid-cols-3 lg:grid-cols-3 ${
-              option === MenuOptions.projects ? "" : "hidden"
-            } w-full mt-4`}
-            data={projects.slice(0, 8)}
-          />
-        )}
+        <PhotoGrid
+          className={` ${
+            option === MenuOptions.gallery ? "" : "hidden"
+          } w-full mt-4`}
+          data={(photos || []).slice(0, 8)}
+        />
+
+        <PhotoGrid
+          imgClassName="max-w-xs h-auto rounded-md overflow-hidden"
+          className={`grid-cols-1 md:grid-cols-3 lg:grid-cols-3 ${
+            option === MenuOptions.projects ? "" : "hidden"
+          } w-full mt-4`}
+          data={(projects || []).slice(0, 8)}
+        />
+
         <PDFViewer
+          resumeData={resume || []}
           className={`${option === MenuOptions.resume ? "" : "hidden"}`}
         />
 
