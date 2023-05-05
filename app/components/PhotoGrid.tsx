@@ -7,35 +7,12 @@ type Photo = {
   preview: string;
 };
 
-interface PhotoGridProps extends DivProps {
-  data: unknown[];
-  imgClassName?: string;
-}
-
-const PhotoGrid = ({
-  className,
-  imgClassName,
-  data,
-  children,
-  ...rest
-}: PhotoGridProps) => {
+const PhotoGrid = ({ className, children, ...rest }: DivProps) => {
   return (
     <div
       className={`grid mx-auto grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-x-2 gap-y-6 place-items-center ${className}`}
-      {...rest}>
-      {(data as Photo[]).slice(0, 8).map((img: Photo) => {
-        return (
-          <div
-            key={img.id}
-            className={`h-80 w-60 md:w-full flex justify-center overflow-hidden ${imgClassName}`}>
-            <img
-              className="h-auto w-full object-cover"
-              src={img.href || img.preview}
-              alt="img"
-            />
-          </div>
-        );
-      })}
+      {...rest}
+    >
       {children}
     </div>
   );
