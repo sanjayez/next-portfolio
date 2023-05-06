@@ -12,10 +12,10 @@ const roboto = Roboto({
   subsets: ["latin"],
 });
 
-// export const metadata = {
-//   title: "Greetings, Fellow earthling!",
-//   description: "Instagram wasn't enough ;-)",
-// };
+export const metadata = {
+  title: "Greetings, Fellow earthling!",
+  description: "sanjay portfolio",
+};
 
 export default async function RootLayout({
   children,
