@@ -47,8 +47,7 @@ export default function Home() {
         <PhotoGrid
           className={` ${
             option === MenuOptions.gallery ? "" : "hidden"
-          } w-full mt-4`}
-        >
+          } w-full mt-4`}>
           {(photos as Photo[])?.map((img) => {
             return (
               <GalleryImage
@@ -65,8 +64,7 @@ export default function Home() {
         <PhotoGrid
           className={`grid-cols-1 md:grid-cols-3 lg:grid-cols-3 ${
             option === MenuOptions.projects ? "" : "hidden"
-          } w-full mt-4`}
-        >
+          } w-full mt-4`}>
           {(projects as Project[])?.map((project: Project) => {
             return (
               <ProjectCard

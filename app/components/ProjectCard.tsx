@@ -28,7 +28,7 @@ const ProjectCard = ({
         }}
         onLoadingComplete={() => setLoading(false)}
         className={getClassNames(
-          "duration-300 ease-in-out group-hover:opacity-75 rounded-md",
+          "duration-300 ease-in-out group-hover:opacity-75 rounded-md hover:scale-105",
           isLoading
             ? "scale-110 blur-2xl grayscale"
             : "scale-100 blur-0 grayscale-0"
@@ -37,7 +37,15 @@ const ProjectCard = ({
       <div className="w-full px-2 pt-3 text-center">
         <h2 className="text-base font-bold">{title}</h2>
         <p className="text-sm font-light">{description}</p>
-        <Button className="w-full mt-2">{"Visit"}</Button>
+        <Button className="w-full mt-2">
+          <a
+            className="w-full block"
+            href={preview}
+            target="_blank"
+            referrerPolicy="no-referrer">
+            Visit
+          </a>
+        </Button>
       </div>
     </div>
   );

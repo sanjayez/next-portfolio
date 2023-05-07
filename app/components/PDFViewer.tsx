@@ -27,7 +27,8 @@ const PDFViewer = ({ children, className, resumeData, ...rest }: PDFProps) => {
 
   return (
     <div
-      className={`flex flex-col justify-center items-center w-full md:w-5/6 mx-auto ${className}`}>
+      className={`flex flex-col justify-center items-center w-full md:w-5/6 mx-auto ${className}`}
+      {...rest}>
       <div className="flex justify-center items-center w-full h-auto mx-auto aspect-[8.5/11]">
         <img src={img} className="max-w-full h-auto shadow-lg" alt="resume" />
       </div>
