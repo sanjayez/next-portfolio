@@ -1,5 +1,5 @@
 export type Project = {
-  id: string;
+  id: number;
   title: string;
   preview: string;
   href: string;
