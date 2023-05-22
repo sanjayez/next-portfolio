@@ -94,7 +94,7 @@ export default function Home() {
         />
         {option === MenuOptions.projects ? (
           <h2 className="text-sm text-center m-4">
-            fun fact: This website is built with Next 13, RSC's and all the
+            fun fact: This website is built with Next 13, RSC&spos;s and all the
             latest jazz😉.
           </h2>
         ) : (

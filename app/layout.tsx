@@ -14,7 +14,7 @@ const roboto = Roboto({
 
 export const metadata = {
   title: "Welcome!",
-  description: `sanjay portfolio`,
+  description: `sanjay's portfolio`,
 };
 
 export default async function RootLayout({
