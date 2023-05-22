@@ -64,7 +64,7 @@ export default function Home() {
         </PhotoGrid>
 
         <PhotoGrid
-          className={`grid-cols-1 md:grid-cols-3 lg:grid-cols-3 ${
+          className={`grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 ${
             option === MenuOptions.projects ? "" : "hidden"
           } w-full mt-4`}>
           {(projects as Project[])
@@ -92,7 +92,15 @@ export default function Home() {
         <Contact
           className={`${option === MenuOptions.contact ? "" : "hidden"}`}
         />
-        <h2 className="text-bold font-sm mt-6 text-center">
+        {option === MenuOptions.projects ? (
+          <h2 className="text-sm text-center m-4">
+            fun fact: This website is built with Next 13, RSC's and all the
+            latest jazz😉.
+          </h2>
+        ) : (
+          ""
+        )}
+        <h2 className="text-sm font-light mt-6 text-center">
           {" "}
           Website under development, cooler updates rolling out soon!
         </h2>
