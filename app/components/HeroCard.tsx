@@ -15,7 +15,7 @@ const HeroCard = () => {
         Adventurer, Dreamer, builder! ✌
       </p>
       <p className="text-sm lg:text-base font-light mt-2 mx-10 md:mx-8 lg:mx-6 text-center">
-        Hello! I am a Full stack software engineer focused on front-end with 3+
+        Hello! I am a Full stack software engineer focused on front-end with 4 
         years of experience in building for the web.
         <br /> Outside of work I love adventure sports, travelling and trying
         the new sushi place in town.
