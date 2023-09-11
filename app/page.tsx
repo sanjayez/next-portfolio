@@ -30,17 +30,17 @@ export default function Home() {
     queryFn: getResume,
   });
 
-  const [option, setOption] = useState<MenuOptions>(MenuOptions.gallery);
+  const [option, setOption] = useState<MenuOptions>(MenuOptions.projects);
 
   return (
     <>
       <HeroCard />
       <div className="w-5/6 mx-4 flex flex-wrap justify-center mt-4">
-        <Button onClick={() => setOption(MenuOptions.gallery)}>Gallery</Button>
         <Button onClick={() => setOption(MenuOptions.projects)}>
           Projects
         </Button>
         <Button onClick={() => setOption(MenuOptions.resume)}>Resume</Button>
+        <Button onClick={() => setOption(MenuOptions.gallery)}>Gallery</Button>
         <Button onClick={() => setOption(MenuOptions.contact)}>Contact</Button>
       </div>
       <div className="w-5/6 max-w-7xl xl:px-36 2xl:px-48 mx-auto mb-8 justify-center">
